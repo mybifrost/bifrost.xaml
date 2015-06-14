@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="Bifrost.XAML.Phone.Examples.RingSlicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bifrost.XAML.Phone.Examples"
+    xmlns:controls="using:Bifrost.XAML.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  VerticalScrollMode="Auto"
+                  HorizontalScrollBarVisibility="Disabled"
+                  HorizontalScrollMode="Disabled">
+        <Grid x:Name="ContentRoot" Margin="19,9.5,19,0">
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <controls:RingSlice Radius="{Binding Text, ElementName=radius}"
+                                InnerRadius="{Binding Text, ElementName=innerRadius}"
+                                Fill="#03244d"
+                                StartAngle="{Binding Text, ElementName=startAngle}"
+                                EndAngle="{Binding Text, ElementName=endAngle}"/>
+            <TextBox x:Name="radius"
+                     Grid.Row="1"
+                     Header="Radius"
+                     Text="100"
+                     InputScope="Number"/>
+            <TextBox x:Name="innerRadius"
+                     Grid.Row="2"
+                     Header="Inner Radius"
+                     Text="75"
+                     InputScope="Number"/>
+            <TextBox x:Name="startAngle"
+                     Grid.Row="3"
+                     Header="Start Angle"
+                     Text="0"/>
+            <TextBox x:Name="endAngle"
+                     Grid.Row="4"
+                     Header="End Angle"
+                     Text="270"/>
+        </Grid>
+    </ScrollViewer>
+</Page>

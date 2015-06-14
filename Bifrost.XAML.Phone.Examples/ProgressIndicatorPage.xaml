@@ -1,0 +1,78 @@
+﻿<Page
+    x:Class="Bifrost.XAML.Phone.Examples.ProgressIndicatorPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Bifrost.XAML.Phone.Examples"
+    xmlns:controls="using:Bifrost.XAML.Phone.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto"
+                  VerticalScrollMode="Auto"
+                  HorizontalScrollBarVisibility="Disabled"
+                  HorizontalScrollMode="Disabled">
+        <Grid x:Name="ContentRoot" Margin="19,9.5,19,0">
+
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition/>
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <controls:ProgressIndicator Header="{Binding Text, ElementName=header}"
+                                        Minimum="{Binding Text, ElementName=minimum}"
+                                        Maximum="{Binding Text, ElementName=maximum}"
+                                        Value="{Binding Text, ElementName=value}"
+                                        TargetValue="{Binding Text, ElementName=targetValue}"
+                                        TargetLabel="{Binding Text, ElementName=targetLabel}"
+                                        CountsUp="{Binding IsOn, ElementName=countsUp}"
+                                        Foreground="#03244d"/>
+            <TextBox x:Name="header"
+                     Grid.Row="1"
+                     Header="Header Text"
+                     Text="Remaining"/>
+            <TextBox x:Name="minimum"
+                     Grid.Row="2"
+                     Header="Minimum"
+                     InputScope="Number"
+                     Text="0"/>
+            <TextBox x:Name="maximum"
+                     Grid.Row="3"
+                     Header="Maximum"
+                     InputScope="Number"
+                     Text="100"/>
+            <TextBox x:Name="value"
+                     Grid.Row="4"
+                     Header="Value"
+                     InputScope="Number"
+                     Text="40"/>
+            <TextBox x:Name="targetValue"
+                     Grid.Row="5"
+                     Header="Target Value"
+                     InputScope="Number"
+                     Text="50"/>
+            <TextBox x:Name="targetLabel"
+                     Grid.Row="6"
+                     Header="Target Label"
+                     Text="Today"/>
+            <ToggleSwitch x:Name="countsUp"
+                          Grid.Row="7"
+                          Header="Counts Up"
+                          IsOn="False"/>
+        </Grid>
+    </ScrollViewer>
+</Page>
