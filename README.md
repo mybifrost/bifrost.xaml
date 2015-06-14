@@ -6,6 +6,28 @@ A collection of utilties and controls for XAML applications.  Currently this is 
 <h2>Extensions</h2>
 <b>DependencyObject.GetAncestors\<T\></b> finds all child elements of a specific type.
 
+<h2>Converters</h2>
+<h3>CountToVisibilityConverter</h3>
+Useful if you need to hide or show an element based on the count of an enumerable property.  For example, showing placeholder content if a ListView is empty.
+
+By default, Visible will be returned for a count > 0.  You can use the <b>Inverted</b> property to get the opposite behavior.
+
+<h3>DateTimeToDateTimeOffsetConverter</h3>
+WinRT's DatePicker control does not bind properly to a DateTime object.  Use this converter to properly bind the picker to a DateTime property without having to use any code-behind to handle the two-way binding.
+
+<h3>DateTimeToStringConverter</h3>
+Use this to display DateTime objects in a specific string format.  See <a>https://msdn.microsoft.com/en-us/library/az4se3k1%28v=vs.110%29.aspx</a> for details on the standard DateTime string formats.
+
+<h3>DateTimeToTimeSpanConverter</h3>
+WinRT's TimePicker control does not bind properly to a DateTime object.  Use this converter to properly bind the picker to a DateTime property without having to use any code-behind to handle the two-way binding.
+
+<h3>DoubleToStringConverter</h3>
+Use this to display double objects in a specific string format.  See <a>https://msdn.microsoft.com/en-us/library/dwhawy9k.aspx</a> for details on the standard double string formats.
+
+<h3>StringToVisibilityConverter</h3>
+Use this to hide/show an element based on string.IsNullOrEmpty().  This is useful if you have a TextBlock that may or may not be shown depending on the data, by default the TextBlock may still take up vertical space even if it is empty.
+
+
 <h1>Bifrost.XAML.Phone</h1>
 <h2>Controls</h2>
 <h3>ProgressIndicator</h3>
@@ -26,9 +48,9 @@ A collection of utilties and controls for XAML applications.  Currently this is 
 
 <b>SplitView</b> expect child elements for <b>Pane</b> and <b>Content</b> which define the navigation menu and main page content.  Check out the <b>Windows.XAML.Phone.Examples</b> for a great example of how to define a Shell.xaml page that redirects the usual page navigation to the <b>SplitView.Content</b> element.
 
-Though the Windows 10 SplitView control leaves it totally up to you how the pane, content, and any page headers/chrome should look I wanted to build in a common UI style and allow users to restyle it easily.  
+One addition to the interaction model I have made is to allow users to swipe to see the menu, I believe the Windows 10 SplitView doesn't provide this by default.  I know the "hamburger" menu on Windows 10 has been contentious, but personally I am much happier with it as long as I can open the menu without having to reach for the top corner of a screen.
 
-By default, a header bar will be shown above the page content and includes the usual "hamburger" menu icon.  If you define the <b>Header</b> property with a string, this will show next to the menu icon styled to fit the page.  You can also redefine the <b>HeaderTemplate</b> property to put custom content next to the menu icon.  <b>HeaderBackground</b> and <b>HeaderForeground</b> properties are exposed to let you change colors without having to touch the control template.
+I have also built in some common styling for the SplitView control that is not built into the Windows 10 control.  By default, there is a header bar above the Content which houses a "hamburger" menu icon and an optional header.  If you define the <b>Header</b> property with a string, this will show next to the menu icon styled to fit the page.  You can also redefine the <b>HeaderTemplate</b> property to put custom content next to the menu icon.  <b>HeaderBackground</b> and <b>HeaderForeground</b> properties are exposed to let you change colors without having to touch the control template.
 
 <b>SplitView</b> is still a work in progress as I want to come up with a simple interface for defining the navigation items.  The Windows 10 control doesn't give any built in styling or functionality for this, but my designs often end up with a group of common navigation items at the top and settings at the bottom.  I'm working on adding PrimaryCommands and SecondaryCommands along with template properties, but need to look further into how this will integrate with MVVMLight and MVVMCross page navigation.
 
