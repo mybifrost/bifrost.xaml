@@ -56,6 +56,11 @@ namespace Bifrost.XAML.Phone.Examples
             NavigateIfNeeded(typeof(ProgressIndicatorPage), "Progress Indicator");
         }
 
+        private void behaviorButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            NavigateIfNeeded(typeof(BehaviorsPage), "Behaviors");
+        }
+
         private void NavigateIfNeeded(Type pageType, string pageTitle = null)
         {
             if (this._rootFrame != null &&

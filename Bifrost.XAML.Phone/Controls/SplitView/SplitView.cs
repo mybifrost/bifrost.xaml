@@ -71,7 +71,7 @@ namespace Bifrost.XAML.Phone.Controls
             this.Unloaded += SplitView_Unloaded;
             _pane.SizeChanged += leftPane_SizeChanged;
             _menuIcon.Tapped += _menuIcon_Tapped;
-
+            
             ManipulationMode = ManipulationModes.TranslateX;
             ManipulationDelta += SplitView_ManipulationDelta;
             ManipulationCompleted += SplitView_ManipulationCompleted;

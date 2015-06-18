@@ -106,6 +106,10 @@
                         x:Name="progressIndicatorButton"
                         Tapped="progressIndicatorButton_Tapped"
                         Style="{StaticResource NavigationButtonStyle}"/>
+                <Button Content="Behaviors"
+                        x:Name="behaviorButton"
+                        Tapped="behaviorButton_Tapped"
+                        Style="{StaticResource NavigationButtonStyle}"/>
             </StackPanel>
         </controls:SplitView.Pane>
     </controls:SplitView>

@@ -79,6 +79,8 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\TextBoxMaskBehavior.cs" />
+    <Compile Include="Behaviors\TextBoxValidationBehavior.cs" />
     <Compile Include="Controls\ProgressIndicator\ProgressIndicator.cs" />
     <Compile Include="Controls\RingSlice\PercentRingSlice.cs" />
     <Compile Include="Controls\RingSlice\RingSlice.cs" />
@@ -99,6 +101,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="BehaviorsXamlSDKManaged, Version=12.0">
+      <Name>Behaviors SDK %28XAML%29</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>
