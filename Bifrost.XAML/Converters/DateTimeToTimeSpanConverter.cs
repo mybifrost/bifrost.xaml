@@ -20,7 +20,7 @@ namespace Bifrost.XAML.Converters
                 DateTime date = (DateTime)value;
                 return date - date.Date;
             }
-            catch (Exception ex)
+            catch
             {
                 return TimeSpan.MinValue;
             }
