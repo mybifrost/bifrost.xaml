@@ -43,7 +43,14 @@ namespace Bifrost.XAML.Phone.Controls
         {
             this.DefaultStyleKey = typeof(SplitView);
 
-            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            try
+            {
+                HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+            }
+            catch
+            {
+                // Ignore when the hardware buttons aren't available (to avoid a crashing designer)
+            }
         }
 
         void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
