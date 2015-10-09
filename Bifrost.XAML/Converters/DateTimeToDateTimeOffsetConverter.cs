@@ -20,7 +20,7 @@ namespace Bifrost.XAML.Converters
                 DateTime date = (DateTime)value;
                 return new DateTimeOffset(date);
             }
-            catch (Exception ex)
+            catch
             {
                 return DateTimeOffset.MinValue;
             }
@@ -33,7 +33,7 @@ namespace Bifrost.XAML.Converters
                 DateTimeOffset dto = (DateTimeOffset)value;
                 return dto.DateTime;
             }
-            catch (Exception ex)
+            catch
             {
                 return DateTime.MinValue;
             }
